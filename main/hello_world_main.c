@@ -149,7 +149,7 @@ void app_main()
 	
 	
 	xTaskCreate(&artnet_task, "artnet", 2048, NULL, 5, NULL);
-	
+	xTaskCreate(&http_server, "http_server", 2048, NULL, 5, NULL);
 	return;
     //printf("Restarting now.\n");
     //fflush(stdout);

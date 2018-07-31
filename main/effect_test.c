@@ -11,6 +11,7 @@
 
 void effect_test_start() {
 	led_clear();
+	led_show();
 }
 
 void effect_test_process() {
@@ -85,6 +86,42 @@ void effect_test_process() {
 	led_show();
 	vTaskDelay(1000/portTICK_PERIOD_MS);
 	
+	led_color.red = 128;
+	led_color.green = 128;
+	led_color.blue = 128;
+	ledbuf = led_get_buf(0, 0);
+	for (int i=0; i<LED_LENGTH; i++)
+		ledbuf[i] = led_color;
+	led_show();
+	vTaskDelay(1000/portTICK_PERIOD_MS);
+	
+	led_color.red = 64;
+	led_color.green = 64;
+	led_color.blue = 64;
+	ledbuf = led_get_buf(0, 0);
+	for (int i=0; i<LED_LENGTH; i++)
+		ledbuf[i] = led_color;
+	led_show();
+	vTaskDelay(1000/portTICK_PERIOD_MS);
+	
+	led_color.red = 32;
+	led_color.green = 32;
+	led_color.blue = 32;
+	ledbuf = led_get_buf(0, 0);
+	for (int i=0; i<LED_LENGTH; i++)
+		ledbuf[i] = led_color;
+	led_show();
+	vTaskDelay(1000/portTICK_PERIOD_MS);
+	
+	led_color.red = 0;
+	led_color.green = 0;
+	led_color.blue = 0;
+	ledbuf = led_get_buf(0, 0);
+	for (int i=0; i<LED_LENGTH; i++)
+		ledbuf[i] = led_color;
+	led_show();
+	vTaskDelay(1000/portTICK_PERIOD_MS);
+	
 	led_color.red = 255;
 	led_color.green = 0;
 	led_color.blue = 0;
@@ -106,6 +143,7 @@ void effect_test_process() {
 		led_show();
 		vTaskDelay(100/portTICK_PERIOD_MS);
 	}
+	
 	
 	// led_color.red = 0;
 	// led_color.green = 0;
@@ -129,4 +167,5 @@ void effect_test_process() {
 
 void effect_test_end() {
 	led_clear();
+	led_show();
 }

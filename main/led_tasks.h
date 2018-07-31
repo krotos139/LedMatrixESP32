@@ -16,10 +16,20 @@ struct led_color_t* led_get_buf(uint8_t x, uint8_t y);
 short ledMatrixMap(int px, int py);
 
 void switchScene(int scene);
+int getScene();
 
 void effect_test_start();
 void effect_test_process();
 void effect_test_end();
+
+void effect_maillight_start();
+void effect_maillight_process();
+void effect_maillight_end();
+
+void effect_off_start();
+void effect_off_process();
+void effect_off_end();
+
 
 void artnet_start();
 void artnet_process();
@@ -29,3 +39,4 @@ void init_led();
 
 void artnet_task();
 void control_task();
+void http_server(void *pvParameters);

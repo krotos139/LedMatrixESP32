@@ -37,10 +37,10 @@ static const char *TAG = "led_strip";
 /****************************
         WS2812 Timing
  ****************************/
-#define LED_STRIP_RMT_TICKS_BIT_1_HIGH_WS2812 9 // 900ns (900ns +/- 150ns per datasheet)
-#define LED_STRIP_RMT_TICKS_BIT_1_LOW_WS2812  3 // 300ns (350ns +/- 150ns per datasheet)
+#define LED_STRIP_RMT_TICKS_BIT_1_HIGH_WS2812 7 // 900ns (900ns +/- 150ns per datasheet)
+#define LED_STRIP_RMT_TICKS_BIT_1_LOW_WS2812  6 // 300ns (350ns +/- 150ns per datasheet)
 #define LED_STRIP_RMT_TICKS_BIT_0_HIGH_WS2812 3 // 300ns (350ns +/- 150ns per datasheet)
-#define LED_STRIP_RMT_TICKS_BIT_0_LOW_WS2812  9 // 900ns (900ns +/- 150ns per datasheet)
+#define LED_STRIP_RMT_TICKS_BIT_0_LOW_WS2812  8 // 900ns (900ns +/- 150ns per datasheet)
 
 /****************************
         SK6812 Timing

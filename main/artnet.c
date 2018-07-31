@@ -104,37 +104,42 @@ void artnet_task() {
 	
 	uint32_t clock_millis = (uint32_t) (clock() * 1000 / CLOCKS_PER_SEC) + 1000;
     while (true) {
-		while (true) {
-			if (ArtNetParsePacket() == 0)  break;
-		}
-		if (clock_millis < (uint32_t) (clock() * 1000 / CLOCKS_PER_SEC)) {
-			if (artnetFramesCount>0) {
-				switchScene(1);
-			}
-			ESP_LOGI(TAG, "artnetFramesCount=%d", artnetFramesCount);
-			// printf("ARTNET DATA:\n");
-			// struct led_color_t color;
-			// for (int y = 0 ; y<24 ; y++) {
-				// for (int x = 0 ; x<16 ; x++) {
-					// led_get_pixel_color(x, y, &color);
-					// printf("%3d,%3d,%3d | ", color.red, color.green, color.blue);
-				// }
-				// printf("\n");
+		// while (true) {
+			// if (ArtNetParsePacket() == 0)  break;
+		// }
+		// if (clock_millis < (uint32_t) (clock() * 1000 / CLOCKS_PER_SEC)) {
+			// if (artnetFramesCount>0) {
+				// switchScene(1);
 			// }
-			artnetFramesCount = 0;
-			clock_millis += 1000;
-		}
-		//printf("Restarting in %d seconds...\n", i);
-        vTaskDelay(1);
+			// ESP_LOGI(TAG, "artnetFramesCount=%d", artnetFramesCount);
+			// // printf("ARTNET DATA:\n");
+			// // struct led_color_t color;
+			// // for (int y = 0 ; y<24 ; y++) {
+				// // for (int x = 0 ; x<16 ; x++) {
+					// // led_get_pixel_color(x, y, &color);
+					// // printf("%3d,%3d,%3d | ", color.red, color.green, color.blue);
+				// // }
+				// // printf("\n");
+			// // }
+			// artnetFramesCount = 0;
+			// clock_millis += 1000;
+		// }
+		// //printf("Restarting in %d seconds...\n", i);
+        // vTaskDelay(1);
     }
 }
 
 void artnet_start() {
-	
+	led_clear();
+	led_show();
 }
 void artnet_process() {
-	
+	while (true) {
+		if (ArtNetParsePacket() == 0)  break;
+	}
+	vTaskDelay(1);
 }
 void artnet_end() {
-	
+	led_clear();
+	led_show();
 }
